@@ -29,5 +29,7 @@ class SupperPartyPipeline:
         self.client.close()
 
     def process_item(self, item, spider):
-        self.db[self.collection_name].insert_one(ItemAdapter(item).asdict())
+        collection = self.db[self.collection_name]
+        if not collection.find_one({"url": item["url"]}):
+            collection.insert_one(ItemAdapter(item).asdict())
         return item
