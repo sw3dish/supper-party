@@ -10,8 +10,6 @@ class BonAppetitSitemapSpider(scrapy.spiders.SitemapSpider):
     sitemap_urls = ["https://bonappetit.com/sitemap.xml"]
     sitemap_rules = [("/recipe/", "parse_recipe")]
 
-    sitemap_rules = [("/recipe", "parse_recipe")]
-
     def parse_recipe(self, response):
         schema_json = response.xpath(
             "//script[@type='application/ld+json']/text()"
