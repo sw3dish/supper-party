@@ -12,9 +12,12 @@ BOT_NAME = "supper_party"
 SPIDER_MODULES = ["supper_party.spiders"]
 NEWSPIDER_MODULE = "supper_party.spiders"
 
+# Mongo config
+MONGO_URI = "mongo:27017"
+MONGO_DATABASE = "supper_party"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'supper_party (+http://www.yourdomain.com)'
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -25,9 +28,9 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 2
 # The download delay setting will honor only one of:
-# CONCURRENT_REQUESTS_PER_DOMAIN = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 4
 # CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
@@ -86,6 +89,3 @@ ITEM_PIPELINES = {
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-MONGO_URI = "mongo:27017"
-MONGO_DATABASE = "supper_party"
