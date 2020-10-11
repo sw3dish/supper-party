@@ -4,3 +4,9 @@ services:
     build: ./scraper
     volumes:
       - ./scraper:/usr/src/app
+  mongo:
+    image: mongo:4.4.1-bionic
+    volumes:
+      - ./mongo/data:/data/db
+    ports:
+      - 27017:27017
