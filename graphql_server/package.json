@@ -1,0 +1,22 @@
+{
+  "name": "graphql_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource-mongodb": "^0.2.8",
+    "apollo-server": "^2.18.2",
+    "graphql": "^14.7.0",
+    "mongodb": "^3.6.2",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  }
+}
