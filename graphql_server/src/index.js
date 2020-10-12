@@ -5,7 +5,7 @@ const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
 const RecipeAPI = require("./datasources/recipe");
 
-const client = new MongoClient("mongodb://localhost:27017/supper_party", {
+const client = new MongoClient("mongodb://mongo:27017/supper_party", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });

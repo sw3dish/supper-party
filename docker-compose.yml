@@ -10,3 +10,7 @@ services:
       - ./mongo/data:/data/db
     ports:
       - 27017:27017
+  graphql:
+    build: ./graphql_server
+    ports:
+      - 4000:4000
