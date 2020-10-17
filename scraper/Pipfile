@@ -4,10 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+black = "==20.8b1"
+flake8 = "*"
+flake8-black = "*"
 
 [packages]
 scrapy = "*"
 pymongo = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"

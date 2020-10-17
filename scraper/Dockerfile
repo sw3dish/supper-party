@@ -7,7 +7,11 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+RUN pip3 install pipenv
+
+COPY Pipfile Pipfile.lock ./
+
+RUN pipenv lock --requirements > requirements.txt
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
