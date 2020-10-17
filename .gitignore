@@ -1,3 +1,6 @@
+mongo/data
+postgres/data
+
 # Logs
 logs
 *.log
@@ -253,5 +256,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-mongo/data
