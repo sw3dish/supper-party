@@ -16,14 +16,12 @@ class BonAppetitSpider(scrapy.Spider):
         """
         Starts by parsing each issue landing page
         """
-        # for (year, month) in generate_issue_dates():
-        for (year, month) in [(2020, 10), (2020, 9)]:
+        for (year, month) in generate_issue_dates():
             # We have to pad out the month to 2 digits
-            url = "https://www.bonappetit.com/search?content=recipe&issueDate={}-{:02d}-01".format(
+            url = "https://www.bonappetit.com/search?content=recipe&issueDate={}-{:02d}-01".format(  # noqa: E501
                 year, month
             )
             yield scrapy.Request(url=url, callback=self.parse_issue_page)
-            break
 
     def parse_issue_page(self, response):
         # get all the recipes on this page
@@ -34,7 +32,6 @@ class BonAppetitSpider(scrapy.Spider):
         ]
         for url in recipe_urls:
             yield scrapy.Request(url=url, callback=self.parse_recipe)
-            break
 
         # go to the next page using the link
         next_page = response.xpath("//a[@class='the-next-page']")
@@ -46,11 +43,9 @@ class BonAppetitSpider(scrapy.Spider):
             )
 
     def parse_recipe(self, response):
-        schema_json = response.xpath(
+        schema_data = response.xpath(
             "//script[@type='application/ld+json']/text()"
         ).get()
-        recipe_schema = json.loads(
-            schema_data.replace("\r", "\\r").replace("\t", "\\t")
-        )
-        item = RecipeItem(url=response.url, json=json)
+        schema_json = json.loads(schema_data.replace("\r", "\\r").replace("\t", "\\t"))
+        item = RecipeItem(url=response.url, json=schema_json)
         yield item
