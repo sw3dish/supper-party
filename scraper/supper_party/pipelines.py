@@ -7,7 +7,7 @@ import pymongo
 from itemadapter import ItemAdapter
 
 
-class SupperPartyPipeline:
+class MongoPipeline:
     collection_name = "bon_appetit_recipes"
 
     def __init__(self, mongo_uri, mongo_db):
