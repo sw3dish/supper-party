@@ -1,5 +1,11 @@
 version: "3.8"
 services:
+  app:
+    build: ./app
+    volumes:
+      - ./app:/usr/srv/app
+    ports:
+      - 4001:4000
   graphql:
     build: ./graphql_server
     depends_on:
