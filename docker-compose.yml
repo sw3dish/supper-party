@@ -1,5 +1,9 @@
 version: "3.8"
 services:
+  app:
+    build: ./app
+    depends_on:
+      - graphql
   graphql:
     build: ./graphql_server
     depends_on:
